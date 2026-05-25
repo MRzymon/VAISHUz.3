@@ -11,12 +11,12 @@ for pkg,imp in [("flask","flask"),("requests","requests")]:
 
 # ╔══════════════════════════════════════════════╗
 # ║  PASTE YOUR API KEY HERE (optional)           ║
-API_KEY = ""
+API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 # ╚══════════════════════════════════════════════╝
 
 from flask import Flask, request, jsonify, render_template_string
 from pathlib import Path
-import json, datetime, random, time, re, socket
+import json, datetime, random, time, re, socket, os
 import urllib.request, urllib.error, urllib.parse
 
 app = Flask(__name__)
